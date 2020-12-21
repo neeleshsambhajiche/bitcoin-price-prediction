@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.VectorAssembler","timestamp":1608356755338,"sparkVersion":"2.3.1","uid":"vecAssembler_2411acee4a56","paramMap":{"inputCols":["row_number","monthVec","monthdayVec"],"outputCol":"features"}}
