@@ -1,12 +1,14 @@
 package com.example.app.core.async
 
 import java.util.Properties
-
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.kafka.common.serialization.StringSerializer
 import org.json4s._
 import org.json4s.jackson.Serialization.write
 
+/**
+ * This defines a Kafka producer to write prediction events
+ */
 class PredictionWriter(bootstrapServers: String, topic: String) {
 
   implicit val formats = DefaultFormats
@@ -22,6 +24,9 @@ class PredictionWriter(bootstrapServers: String, topic: String) {
 
   val producer = new KafkaProducer[String, String](kafkaProducerProps)
 
+  /**
+   * Writes the prediction event to Kafka
+   */
   def writePredictionEvent(date: String, price: Double) {
     val record = new ProducerRecord[String, String](topic, write(PredictionEvent("bitcoinPricePredictionResponse", java.util.UUID.randomUUID.toString, date, price)))
     producer.send(record)

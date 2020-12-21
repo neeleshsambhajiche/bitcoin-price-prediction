@@ -2,9 +2,9 @@ val ScalatraVersion = "2.6.3"
 
 organization := "com.example"
 
-name := "My Scalatra Web App"
+name := "service"
 
-version := "0.1.0-SNAPSHOT"
+version := "0.1"
 
 scalaVersion := "2.11.8"
 
@@ -30,7 +30,6 @@ libraryDependencies ++= Seq(
   "org.scalatra" %% "scalatra-scalatest" % ScalatraVersion % "test" ,
   "com.dimafeng" %% "testcontainers-scala-scalatest" % testcontainersScalaVersion % "test",
   "com.dimafeng" %% "testcontainers-scala-kafka" % testcontainersScalaVersion % "test",
-  "org.scalatestplus" %% "mockito-3-4" % "3.2.2.0" % "test"
 )
 
 enablePlugins(ScalatraPlugin)

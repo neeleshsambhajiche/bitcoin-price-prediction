@@ -1,4 +1,4 @@
-name := "BitcoinPriceModel"
+name := "trainer"
 
 version := "0.1"
 

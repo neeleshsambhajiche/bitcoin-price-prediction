@@ -1,11 +1,10 @@
 package com.example.app.utils
 
 import java.io.File
-
 import com.typesafe.config.ConfigFactory
 
 /**
- * @since 20/12/20
+ * Loads the config file into a config object
  */
 object AppConfig {
 
