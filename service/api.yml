@@ -1,0 +1,74 @@
+swagger: "2.0"
+info:
+  description: "Predicts the bitcoin price on a given date"
+  version: "1.0.0"
+  title: "Bitcoin Price Prediction API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "sambhajicheneelesh@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/"
+tags:
+  - name: "bitcoin"
+
+
+schemes:
+  - "http"
+
+# Define Path end-points
+paths:
+  /price:
+    get:
+      tags:
+        - "bitcoin"
+      summary: "Requests bitcoin price prediction"
+      description: "Request bitcoin price prediction for a given date"
+      operationId: "getPricebyDate"
+      produces:
+        - "application/json"
+      parameters:
+        - in: query
+          name: "date"
+          description: "Date"
+          required: true
+          type: "string"
+      responses:
+        200:
+          description: "Success in getting price"
+          schema:
+            $ref: "#/definitions/PriceResponse"
+        500:
+          description: "Internal server error"
+          schema:
+            $ref: "#/definitions/MessageResponse"
+
+  /health:
+    post:
+      tags:
+        - "bitcoin"
+      summary: "Check whether the App is up"
+      description: "Check whether the App is up"
+      operationId: "checkApp"
+      responses:
+        200:
+          description: "App is up"
+
+
+
+# Model Objects for API
+definitions:
+
+  PriceResponse:
+    type: "object"
+    properties:
+      price:
+        type: number
+
+  MessageResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
